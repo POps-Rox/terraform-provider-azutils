@@ -18,7 +18,7 @@ You can simply consume the provider from the Terraform registry from the followi
 terraform {
   required_providers {
     pops-rox-utils = {
-      source = "POps-Rox/azurenoopsutils"
+      source = "pops-rox/pops-rox-utils"
       version = "1.0.0"
     }
   }

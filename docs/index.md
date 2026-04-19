@@ -91,17 +91,17 @@ The comprehensive list of resource type can be found [here](./docs/resources/pop
 
 ## Building the provider
 
-Clone repository to: $GOPATH/src/github.com/azure/terraform-provider-azurenoopsutils
+Clone repository to: $GOPATH/src/github.com/pops-rox/terraform-provider-pops-rox-utils
 
 ```
-$ mkdir -p $GOPATH/src/github.com/aztfmod; cd $GOPATH/src/github.com/aztfmod
-$ git clone https://github.com/azure/terraform-provider-azurenoopsutils.git
+$ mkdir -p $GOPATH/src/github.com/pops-rox; cd $GOPATH/src/github.com/pops-rox
+$ git clone https://github.com/POps-Rox/tf-provider-azutils.git
 
 ```
 Enter the provider directory and build the provider
 
 ```
-$ cd $GOPATH/src/github.com/azure/terraform-provider-azurenoopsutils
+$ cd $GOPATH/src/github.com/pops-rox/terraform-provider-pops-rox-utils
 $ make build
 
 ```
@@ -117,7 +117,7 @@ To compile the provider, run make build. This will build the provider and put th
 ```
 $ make build
 ...
-$ $GOPATH/bin/terraform-provider-azurenoopsutils
+$ $GOPATH/bin/terraform-provider-pops-rox-utils
 ...
 
 ```
