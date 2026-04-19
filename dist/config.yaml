@@ -5,12 +5,6 @@ release:
     name: terraform-provider-popsrox-utils
   draft: false
   name_template: '{{.Tag}}'
-scoop:
-  name: terraform-provider-popsrox-utils
-  commit_author:
-    name: goreleaserbot
-    email: goreleaser@carlosbecker.com
-  commit_msg_template: Scoop update for {{ .ProjectName }} version {{ .Tag }}
 builds:
 - id: terraform-provider-popsrox-utils
   goos:
@@ -63,7 +57,6 @@ builds:
   binary: '{{ .ProjectName }}_v{{ .Version }}'
   env:
   - CGO_ENABLED=0
-  lang: go
 archives:
 - id: default
   builds:
