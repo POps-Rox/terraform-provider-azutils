@@ -79,8 +79,9 @@ snapshot:
 signs:
   - artifacts: checksum
     args:
-      - "--batch"
       - "--yes"
+      - "--pinentry-mode"
+      - "loopback"
       - "--passphrase-fd"
       - "0"
       - "--local-user"

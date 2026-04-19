@@ -31,6 +31,12 @@ jobs:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
 
+      - name: Configure GPG agent for loopback pinentry
+        run: |
+          mkdir -p ~/.gnupg
+          echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
+          gpg-connect-agent reloadagent /bye
+
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@f82d6c1c344bcacabba2c841718984797f664a6b # v4.2.0
         with:
