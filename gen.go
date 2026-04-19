@@ -11,7 +11,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"path"
@@ -55,7 +54,7 @@ func main() {
 		log.Panicln("No directory found")
 	}
 	fmt.Println()
-	files, err := ioutil.ReadDir(path.Join(wd, "templates"))
+	files, err := os.ReadDir(path.Join(wd, "templates"))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -74,7 +73,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	sourceDefinitions, err := ioutil.ReadFile(path.Join(wd, "resourceDefinition.json"))
+	sourceDefinitions, err := os.ReadFile(path.Join(wd, "resourceDefinition.json"))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -86,7 +85,7 @@ func main() {
 	}
 
 	// Undocumented resource definitions
-	sourceDefinitionsUndocumented, err := ioutil.ReadFile(path.Join(wd, "resourceDefinition_out_of_docs.json"))
+	sourceDefinitionsUndocumented, err := os.ReadFile(path.Join(wd, "resourceDefinition_out_of_docs.json"))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -108,7 +107,7 @@ func main() {
 		}
 	}
 
-	modelsFile, err := os.OpenFile(path.Join(wd, "azurenoopsutils/models_generated.go"), os.O_TRUNC|os.O_CREATE|os.O_WRONLY, 0644)
+	modelsFile, err := os.OpenFile(path.Join(wd, "popsroxutils/models_generated.go"), os.O_TRUNC|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Fatal(err)
 	}

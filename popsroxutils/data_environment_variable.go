@@ -1,4 +1,4 @@
-package azurenoopsutils
+package popsroxutils
 
 import (
 	"context"
@@ -39,7 +39,7 @@ func resourceAction(ctx context.Context, d *schema.ResourceData, meta interface{
 	name := d.Get("name").(string)
 	value := os.Getenv(name)
 
-	if d.Get("fails_if_empty").(bool) {
+	if d.Get("fails_if_empty").(bool) && value == "" {
 		return diag.Errorf("Value is not set for environment variable: %s", name)
 	}
 

@@ -12,20 +12,20 @@ This provider implements a set of methodologies for naming convention implementa
 
 ## Using the Provider
 
-You can simply consume the provider from the Terraform registry from the following URL: [https://registry.terraform.io/providers/azurenoops/azurenoopsutils/latest](https://registry.terraform.io/providers/azurenoops/azurenoopsutils/latest), then add it in your provider declaration as follow:
+You can simply consume the provider from the Terraform registry from the following URL: [https://registry.terraform.io/providers/pops-rox/pops-rox-utils/latest](https://registry.terraform.io/providers/pops-rox/pops-rox-utils/latest), then add it in your provider declaration as follow:
 
 ```hcl
 terraform {
   required_providers {
-    azurenoopsutils = {
-      source = "POps-Rox/azurenoopsutils"
+    pops-rox-utils = {
+      source = "pops-rox/pops-rox-utils"
       version = "1.0.0"
     }
   }
 }
 ```
 
-The azurenoopsutils_resource_name resource allows you to:
+The pops_rox_utils_resource_name resource allows you to:
 
 * Clean inputs to make sure they remain compliant with the allowed patterns for each Azure resource.
 * Generate random characters to append at the end of the resource name.
@@ -40,7 +40,7 @@ The example generates a 23 characters name compatible with the specification for
 dev-aztfmod-001
 
 ```hcl
-resource "azurenoopsutils_resource_name" "rg_example" {
+resource "pops_rox_utils_resource_name" "rg_example" {
     name            = "demogroup"
     resource_type   = "azurerm_resource_group"
     prefixes        = ["a", "b"]
@@ -50,7 +50,7 @@ resource "azurenoopsutils_resource_name" "rg_example" {
 }
 
 resource "azurerm_resource_group" "demo" {
-  name     = azurenoopsutils_resource_name.rg_example.result
+  name     = pops_rox_utils_resource_name.rg_example.result
   location = "eastus"
 }
 ```
@@ -87,7 +87,7 @@ The following attributes are exported:
 
 We define resource types as per [naming-and-tagging](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)
 
-The comprehensive list of resource type can be found [here](./docs/resources/azurenoopsutils_resource_name.md)
+The comprehensive list of resource type can be found [here](./docs/resources/pops_rox_utils_resource_name.md)
 
 ## Building the provider
 

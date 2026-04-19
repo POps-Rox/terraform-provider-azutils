@@ -11,3 +11,5 @@ terraform
 **/*.log
 main
 __debug_bin
+dist/
+**/.terraform.lock.hcl

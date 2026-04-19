@@ -1,4 +1,4 @@
-package azurenoopsutils
+package popsroxutils
 
 import (
 	"testing"
@@ -13,7 +13,7 @@ var testAccProvider *schema.Provider
 func init() {
 	testAccProvider = Provider()
 	testAccProviders = map[string]*schema.Provider{
-		"azurenoopsutils": testAccProvider,
+		"pops-rox-utils": testAccProvider,
 	}
 }
 

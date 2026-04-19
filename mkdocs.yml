@@ -1,5 +1,5 @@
-site_name: "Azure NoOps Utils Provider"
-site_description: Documentation for Azure NoOps Utils Provider
+site_name: "POps-Rox Utils Provider"
+site_description: Documentation for POps-Rox Utils Provider
 repo_url: https://github.com/POps-Rox/tf-provider-azutils
 edit_uri: edit/main/docs/
 
