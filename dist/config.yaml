@@ -1,18 +1,18 @@
-project_name: terraform-provider-azurenoopsutils
+project_name: terraform-provider-popsrox-utils
 release:
   github:
-    owner: azurenoops
-    name: terraform-provider-azurenoopsutils
+    owner: POps-Rox
+    name: terraform-provider-popsrox-utils
   draft: true
   name_template: '{{.Tag}}'
 scoop:
-  name: terraform-provider-azurenoopsutils
+  name: terraform-provider-popsrox-utils
   commit_author:
     name: goreleaserbot
     email: goreleaser@carlosbecker.com
   commit_msg_template: Scoop update for {{ .ProjectName }} version {{ .Tag }}
 builds:
-- id: terraform-provider-azurenoopsutils
+- id: terraform-provider-popsrox-utils
   goos:
   - freebsd
   - openbsd
@@ -67,7 +67,7 @@ builds:
 archives:
 - id: default
   builds:
-  - terraform-provider-utils
+  - terraform-provider-popsrox-utils
   name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
   format: zip
   files:

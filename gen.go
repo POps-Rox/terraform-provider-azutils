@@ -108,7 +108,7 @@ func main() {
 		}
 	}
 
-	modelsFile, err := os.OpenFile(path.Join(wd, "azurenoopsutils/models_generated.go"), os.O_TRUNC|os.O_CREATE|os.O_WRONLY, 0644)
+	modelsFile, err := os.OpenFile(path.Join(wd, "popsroxutils/models_generated.go"), os.O_TRUNC|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Fatal(err)
 	}

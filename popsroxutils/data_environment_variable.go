@@ -1,4 +1,4 @@
-package azurenoopsutils
+package popsroxutils
 
 import (
 	"context"

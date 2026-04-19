@@ -1,11 +1,11 @@
 terraform {
   required_providers {
-    azurenoopsutils = {
-      source = "azurenoops/azurenoopsutils"
+    popsrox-utils = {
+      source = "POps-Rox/popsrox-utils"
     }
   }
 }
 
-provider "azurenoopsutils" {
+provider "popsrox-utils" {
   # example configuration here
 }
