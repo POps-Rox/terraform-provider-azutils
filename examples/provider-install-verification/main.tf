@@ -1,15 +1,16 @@
 terraform {
   required_providers {
-    popsrox_utils = {
+    popsrox-utils = {
       source = "POps-Rox/popsrox-utils"
     }
   }
 }
 
-provider "popsrox_utils" {}
+provider "popsrox-utils" {}
 
 #Storage account test
 resource "popsrox_utils_resource_name" "azurerm_cognitive_account" {
+  provider      = popsrox-utils
   name          = "anoacogserviced"
   resource_type = "azurerm_cognitive_account"
   prefixes      = ["anoa", "eastus"]
