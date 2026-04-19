@@ -1,4 +1,4 @@
-package azurenoopsutils
+package popsroxutils
 
 import (
 	"context"
@@ -93,11 +93,11 @@ func TestAccResourceName_NoOps(t *testing.T) {
 				Check: resource.ComposeTestCheckFunc(
 
 					testAccNoOpsNamingValidation(
-						"azurenoopsutils_resource_name.noops_rg",
+						"popsrox_utils_resource_name.noops_rg",
 						"pr1-pr2-myrg-",
 						29,
 						"pr1-pr2"),
-					regexMatch("azurenoopsutils_resource_name.noops_rg", regexp.MustCompile(ResourceDefinitions["azurerm_resource_group"].ValidationRegExp), 1),
+					regexMatch("popsrox_utils_resource_name.noops_rg", regexp.MustCompile(ResourceDefinitions["azurerm_resource_group"].ValidationRegExp), 1),
 				),
 			},
 			{
@@ -105,11 +105,11 @@ func TestAccResourceName_NoOps(t *testing.T) {
 				Check: resource.ComposeTestCheckFunc(
 
 					testAccNoOpsNamingValidation(
-						"azurenoopsutils_resource_name.noops_acr_invalid",
+						"popsrox_utils_resource_name.noops_acr_invalid",
 						"pr1pr2myinvalidacrname",
 						35,
 						"pr1pr2"),
-					regexMatch("azurenoopsutils_resource_name.noops_acr_invalid", regexp.MustCompile(ResourceDefinitions["azurerm_container_registry"].ValidationRegExp), 1),
+					regexMatch("popsrox_utils_resource_name.noops_acr_invalid", regexp.MustCompile(ResourceDefinitions["azurerm_container_registry"].ValidationRegExp), 1),
 				),
 			},
 			{
@@ -117,11 +117,11 @@ func TestAccResourceName_NoOps(t *testing.T) {
 				Check: resource.ComposeTestCheckFunc(
 
 					testAccNoOpsNamingValidation(
-						"azurenoopsutils_resource_name.passthrough",
+						"popsrox_utils_resource_name.passthrough",
 						"passthrough",
 						11,
 						""),
-					regexMatch("azurenoopsutils_resource_name.passthrough", regexp.MustCompile(ResourceDefinitions["azurerm_container_registry"].ValidationRegExp), 1),
+					regexMatch("popsrox_utils_resource_name.passthrough", regexp.MustCompile(ResourceDefinitions["azurerm_container_registry"].ValidationRegExp), 1),
 				),
 			},
 			{
@@ -129,11 +129,11 @@ func TestAccResourceName_NoOps(t *testing.T) {
 				Check: resource.ComposeTestCheckFunc(
 
 					testAccNoOpsNamingValidation(
-						"azurenoopsutils_resource_name.apim",
+						"popsrox_utils_resource_name.apim",
 						"vsic-apim-apim",
 						14,
 						"vsic"),
-					regexMatch("azurenoopsutils_resource_name.apim", regexp.MustCompile(ResourceDefinitions["azurerm_api_management_service"].ValidationRegExp), 1),
+					regexMatch("popsrox_utils_resource_name.apim", regexp.MustCompile(ResourceDefinitions["azurerm_api_management_service"].ValidationRegExp), 1),
 				),
 			},
 		},
@@ -150,11 +150,11 @@ func TestAccResourceName_NoOpsRSV(t *testing.T) {
 				Config: testAccResourceNameNoOpsConfigRsv,
 				Check: resource.ComposeTestCheckFunc(
 					testAccNoOpsNamingValidation(
-						"azurenoopsutils_resource_name.rsv",
+						"popsrox_utils_resource_name.rsv",
 						"pr1-test-su1-gm-rsv",
 						19,
 						""),
-					regexMatch("azurenoopsutils_resource_name.rsv", regexp.MustCompile(ResourceDefinitions["azurerm_recovery_services_vault"].ValidationRegExp), 1),
+					regexMatch("popsrox_utils_resource_name.rsv", regexp.MustCompile(ResourceDefinitions["azurerm_recovery_services_vault"].ValidationRegExp), 1),
 				),
 			},
 		},
@@ -343,7 +343,7 @@ func TestResourceExampleInstanceStateUpgradeV2(t *testing.T) {
 
 const testAccResourceNameNoOpsConfig = `
 # Resource Group
-resource "azurenoopsutils_resource_name" "noops_rg" {
+resource "popsrox_utils_resource_name" "noops_rg" {
     name            = "myrg"
 	resource_type   = "azurerm_resource_group"
 	prefixes        = ["pr1", "pr2"]
@@ -352,7 +352,7 @@ resource "azurenoopsutils_resource_name" "noops_rg" {
 	random_length   = 5
 	clean_input     = true
 }
-resource "azurenoopsutils_resource_name" "noops_acr_invalid" {
+resource "popsrox_utils_resource_name" "noops_acr_invalid" {
     name            = "my_invalid_acr_name"
 	resource_type   = "azurerm_container_registry"
 	prefixes        = ["pr1", "pr2"]
@@ -361,7 +361,7 @@ resource "azurenoopsutils_resource_name" "noops_acr_invalid" {
 	random_length   = 5
 	clean_input     = true
 }
-resource "azurenoopsutils_resource_name" "passthrough" {
+resource "popsrox_utils_resource_name" "passthrough" {
     name            = "passthRough"
 	resource_type   = "azurerm_container_registry"
 	prefixes        = ["pr1", "pr2"]
@@ -371,7 +371,7 @@ resource "azurenoopsutils_resource_name" "passthrough" {
 	clean_input     = true
 	passthrough     = true
 }
-resource "azurenoopsutils_resource_name" "apim" {
+resource "popsrox_utils_resource_name" "apim" {
 	name = "apim"
 	resource_type = "azurerm_api_management_service"
 	prefixes = ["vsic"]
@@ -383,7 +383,7 @@ resource "azurenoopsutils_resource_name" "apim" {
 
 const testAccResourceNameNoOpsConfigRsv = `
 # Resource Group
-resource "azurenoopsutils_resource_name" "rsv" {
+resource "popsrox_utils_resource_name" "rsv" {
     name            = "test"
 	resource_type   = "azurerm_recovery_services_vault"
 	prefixes        = ["pr1"]

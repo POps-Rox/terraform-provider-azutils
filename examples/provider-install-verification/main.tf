@@ -1,15 +1,15 @@
 terraform {
   required_providers {
-    azurenoopsutils = {
-      source = "azurenoops/azurenoopsutils"
+    popsrox_utils = {
+      source = "POps-Rox/popsrox-utils"
     }
   }
 }
 
-provider "azurenoopsutils" {}
+provider "popsrox_utils" {}
 
 #Storage account test
-resource "azurenoopsutils_resource_name" "azurerm_cognitive_account" {
+resource "popsrox_utils_resource_name" "azurerm_cognitive_account" {
   name          = "anoacogserviced"
   resource_type = "azurerm_cognitive_account"
   prefixes      = ["anoa", "eastus"]
@@ -22,6 +22,6 @@ resource "azurenoopsutils_resource_name" "azurerm_cognitive_account" {
 }
 
 output "azurerm_cognitive_account" {
-  value       = azurenoopsutils_resource_name.azurerm_cognitive_account.result
+  value       = popsrox_utils_resource_name.azurerm_cognitive_account.result
   description = "Random result based on the resource type"
 }

@@ -1,23 +1,23 @@
 terraform {
   required_providers {
-    azurenoopsutils = {
-      source = "azurenoops/azurenoopsutils"
+    popsrox_utils = {
+      source = "POps-Rox/popsrox-utils"
     }
   }
 }
 
 #Storage account test
-resource "azurenoopsutils_resource_name" "classic_st" {
+resource "popsrox_utils_resource_name" "classic_st" {
   name          = "log2"
   resource_type = "azurerm_storage_account"
 }
 
 output "caf_name_classic_st" {
-  value       = azurenoopsutils_resource_name.classic_st.result
+  value       = popsrox_utils_resource_name.classic_st.result
   description = "Random result based on the resource type"
 }
 
-resource "azurenoopsutils_resource_name" "azurerm_cognitive_account" {
+resource "popsrox_utils_resource_name" "azurerm_cognitive_account" {
   name          = "cogsdemo"
   resource_type = "azurerm_cognitive_account"
   prefixes      = ["a", "z"]
@@ -29,11 +29,11 @@ resource "azurenoopsutils_resource_name" "azurerm_cognitive_account" {
 }
 
 output "azurerm_cognitive_account" {
-  value       = azurenoopsutils_resource_name.azurerm_cognitive_account.result
+  value       = popsrox_utils_resource_name.azurerm_cognitive_account.result
   description = "Random result based on the resource type"
 }
 
-resource "azurenoopsutils_resource_name" "multiple_resources" {
+resource "popsrox_utils_resource_name" "multiple_resources" {
   name           = "cogsdemo2"
   resource_type  = "azurerm_cognitive_account"
   resource_types = ["azurerm_storage_account"]
@@ -46,9 +46,9 @@ resource "azurenoopsutils_resource_name" "multiple_resources" {
 }
 
 output "multiple_resources" {
-  value = azurenoopsutils_resource_name.multiple_resources.results
+  value = popsrox_utils_resource_name.multiple_resources.results
 }
 
 output "multiple_resources_main" {
-  value = azurenoopsutils_resource_name.multiple_resources.result
+  value = popsrox_utils_resource_name.multiple_resources.result
 }

@@ -1,4 +1,4 @@
-module terraform-provider-azurenoopsutils
+module terraform-provider-popsrox-utils
 
 go 1.17
 

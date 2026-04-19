@@ -12,20 +12,20 @@ This provider implements a set of methodologies for naming convention implementa
 
 ## Using the Provider
 
-You can simply consume the provider from the Terraform registry from the following URL: [https://registry.terraform.io/providers/azurenoops/azurenoopsutils/latest](https://registry.terraform.io/providers/azurenoops/azurenoopsutils/latest), then add it in your provider declaration as follow:
+You can simply consume the provider from the Terraform registry from the following URL: [https://registry.terraform.io/providers/POps-Rox/popsrox-utils/latest](https://registry.terraform.io/providers/POps-Rox/popsrox-utils/latest), then add it in your provider declaration as follow:
 
 ```hcl
 terraform {
   required_providers {
-    azurenoopsutils = {
-      source = "POps-Rox/azurenoopsutils"
+    popsrox_utils = {
+      source = "POps-Rox/popsrox-utils"
       version = "1.0.0"
     }
   }
 }
 ```
 
-The azurenoopsutils_resource_name resource allows you to:
+The popsrox_utils_resource_name resource allows you to:
 
 * Clean inputs to make sure they remain compliant with the allowed patterns for each Azure resource.
 * Generate random characters to append at the end of the resource name.
@@ -40,7 +40,7 @@ The example generates a 23 characters name compatible with the specification for
 dev-aztfmod-001
 
 ```hcl
-resource "azurenoopsutils_resource_name" "rg_example" {
+resource "popsrox_utils_resource_name" "rg_example" {
     name            = "demogroup"
     resource_type   = "azurerm_resource_group"
     prefixes        = ["a", "b"]
@@ -50,7 +50,7 @@ resource "azurenoopsutils_resource_name" "rg_example" {
 }
 
 resource "azurerm_resource_group" "demo" {
-  name     = azurenoopsutils_resource_name.rg_example.result
+  name     = popsrox_utils_resource_name.rg_example.result
   location = "eastus"
 }
 ```
@@ -87,21 +87,21 @@ The following attributes are exported:
 
 We define resource types as per [naming-and-tagging](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)
 
-The comprehensive list of resource type can be found [here](./docs/resources/azurenoopsutils_resource_name.md)
+The comprehensive list of resource type can be found [here](./docs/resources/popsrox_utils_resource_name.md)
 
 ## Building the provider
 
-Clone repository to: $GOPATH/src/github.com/azure/terraform-provider-azurenoopsutils
+Clone repository to: $GOPATH/src/github.com/POps-Rox/terraform-provider-popsrox-utils
 
 ```
 $ mkdir -p $GOPATH/src/github.com/aztfmod; cd $GOPATH/src/github.com/aztfmod
-$ git clone https://github.com/azure/terraform-provider-azurenoopsutils.git
+$ git clone https://github.com/POps-Rox/terraform-provider-popsrox-utils.git
 
 ```
 Enter the provider directory and build the provider
 
 ```
-$ cd $GOPATH/src/github.com/azure/terraform-provider-azurenoopsutils
+$ cd $GOPATH/src/github.com/POps-Rox/terraform-provider-popsrox-utils
 $ make build
 
 ```
@@ -117,7 +117,7 @@ To compile the provider, run make build. This will build the provider and put th
 ```
 $ make build
 ...
-$ $GOPATH/bin/terraform-provider-azurenoopsutils
+$ $GOPATH/bin/terraform-provider-popsrox-utils
 ...
 
 ```
@@ -141,8 +141,8 @@ make test
 | Repo                                                                                             | Description                                                |
 |--------------------------------------------------------------------------------------------------|------------------------------------------------------------|
 | [Azure NoOps Accelerator](https://github.com/azure/noopsaccelerator)                | repo with sample and core documentations     |
-| [Azure NoOps Accelerator Terraform Modules](https://github.com/azurenoops)                | terraform modules repo with sample and documentation    |
-| [module](https://registry.terraform.io/modules/azurenoops)                                          | official Azure NoOps Accelerator module available in the Terraform registry (WIP)    |
+| [Azure NoOps Accelerator Terraform Modules](https://github.com/POps-Rox)                | terraform modules repo with sample and documentation    |
+| [module](https://registry.terraform.io/modules/POps-Rox)                                          | official Azure NoOps Accelerator module available in the Terraform registry (WIP)    |
 
 ## Community
 
