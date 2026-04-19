@@ -1,3 +1,4 @@
+version: 2
 project_name: terraform-provider-popsrox-utils
 release:
   github:
@@ -59,10 +60,11 @@ builds:
   - CGO_ENABLED=0
 archives:
 - id: default
-  builds:
+  ids:
   - terraform-provider-popsrox-utils
   name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
-  format: zip
+  formats:
+  - zip
   files:
   - licence*
   - LICENCE*
@@ -73,7 +75,7 @@ archives:
   - changelog*
   - CHANGELOG*
 snapshot:
-  name_template: '{{ .Tag }}-SNAPSHOT-{{ .ShortCommit }}'
+  version_template: '{{ .Tag }}-SNAPSHOT-{{ .ShortCommit }}'
 signs:
   - artifacts: checksum
     args:
@@ -84,17 +86,11 @@ signs:
       - "${signature}"
       - "--detach-sign"
       - "${artifact}"
-
 checksum:
   name_template: '{{ .ProjectName }}_{{ .Version }}_SHA256SUMS'
   algorithm: sha256
 changelog:
-  skip: true
-dist: dist
-env_files:
-  github_token: ~/.config/goreleaser/github_token
-  gitlab_token: ~/.config/goreleaser/gitlab_token
-  gitea_token: ~/.config/goreleaser/gitea_token
+  disable: true
 before:
   hooks:
   - go mod tidy
