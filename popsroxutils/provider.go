@@ -10,11 +10,11 @@ func Provider() *schema.Provider {
 		Schema: map[string]*schema.Schema{},
 		
 		ResourcesMap: map[string]*schema.Resource{
-			"popsrox_utils_resource_name": resourceName(),
+			"popsrox_resource_name": resourceName(),
 		},
 		DataSourcesMap: map[string]*schema.Resource{
-			"popsrox_utils_environment_variable": dataEnvironmentVariable(),
-			"popsrox_utils_resource_name":        dataName(),
+			"popsrox_environment_variable": dataEnvironmentVariable(),
+			"popsrox_resource_name":        dataName(),
 		},
 	}
 }

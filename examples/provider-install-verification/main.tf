@@ -9,7 +9,7 @@ terraform {
 provider "popsrox-utils" {}
 
 #Storage account test
-resource "popsrox_utils_resource_name" "azurerm_cognitive_account" {
+resource "popsrox_resource_name" "azurerm_cognitive_account" {
   provider      = popsrox-utils
   name          = "anoacogserviced"
   resource_type = "azurerm_cognitive_account"
@@ -23,6 +23,6 @@ resource "popsrox_utils_resource_name" "azurerm_cognitive_account" {
 }
 
 output "azurerm_cognitive_account" {
-  value       = popsrox_utils_resource_name.azurerm_cognitive_account.result
+  value       = popsrox_resource_name.azurerm_cognitive_account.result
   description = "Random result based on the resource type"
 }

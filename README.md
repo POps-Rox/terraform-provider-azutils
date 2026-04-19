@@ -25,7 +25,7 @@ terraform {
 }
 ```
 
-The popsrox_utils_resource_name resource allows you to:
+The popsrox_resource_name resource allows you to:
 
 * Clean inputs to make sure they remain compliant with the allowed patterns for each Azure resource.
 * Generate random characters to append at the end of the resource name.
@@ -40,7 +40,7 @@ The example generates a 23 characters name compatible with the specification for
 dev-aztfmod-001
 
 ```hcl
-resource "popsrox_utils_resource_name" "rg_example" {
+resource "popsrox_resource_name" "rg_example" {
     name            = "demogroup"
     resource_type   = "azurerm_resource_group"
     prefixes        = ["a", "b"]
@@ -50,7 +50,7 @@ resource "popsrox_utils_resource_name" "rg_example" {
 }
 
 resource "azurerm_resource_group" "demo" {
-  name     = popsrox_utils_resource_name.rg_example.result
+  name     = popsrox_resource_name.rg_example.result
   location = "eastus"
 }
 ```
@@ -87,7 +87,7 @@ The following attributes are exported:
 
 We define resource types as per [naming-and-tagging](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)
 
-The comprehensive list of resource type can be found [here](./docs/resources/popsrox_utils_resource_name.md)
+The comprehensive list of resource type can be found [here](./docs/resources/popsrox_resource_name.md)
 
 ## Building the provider
 
