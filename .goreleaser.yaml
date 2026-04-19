@@ -3,7 +3,7 @@ project_name: terraform-provider-popsrox-utils
 release:
   github:
     owner: POps-Rox
-    name: terraform-provider-popsrox-utils
+    name: terraform-provider-azutils
   draft: false
   name_template: '{{.Tag}}'
 builds:
