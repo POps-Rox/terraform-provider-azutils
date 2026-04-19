@@ -3,7 +3,7 @@ release:
   github:
     owner: POps-Rox
     name: terraform-provider-popsrox-utils
-  draft: true
+  draft: false
   name_template: '{{.Tag}}'
 scoop:
   name: terraform-provider-popsrox-utils
@@ -81,6 +81,17 @@ archives:
   - CHANGELOG*
 snapshot:
   name_template: '{{ .Tag }}-SNAPSHOT-{{ .ShortCommit }}'
+signs:
+  - artifacts: checksum
+    args:
+      - "--batch"
+      - "--local-user"
+      - "{{ .Env.GPG_FINGERPRINT }}"
+      - "--output"
+      - "${signature}"
+      - "--detach-sign"
+      - "${artifact}"
+
 checksum:
   name_template: '{{ .ProjectName }}_{{ .Version }}_SHA256SUMS'
   algorithm: sha256
