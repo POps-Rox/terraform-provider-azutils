@@ -80,12 +80,16 @@ signs:
   - artifacts: checksum
     args:
       - "--batch"
+      - "--yes"
+      - "--passphrase-fd"
+      - "0"
       - "--local-user"
       - "{{ .Env.GPG_FINGERPRINT }}"
       - "--output"
       - "${signature}"
       - "--detach-sign"
       - "${artifact}"
+    stdin: "{{ .Env.GPG_PASSPHRASE }}"
 checksum:
   name_template: '{{ .ProjectName }}_{{ .Version }}_SHA256SUMS'
   algorithm: sha256
