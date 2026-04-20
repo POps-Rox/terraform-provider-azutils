@@ -6,13 +6,13 @@ description: |-
   .
 ---
 
-# popsrox_utils_resource_name (Resource)
+# popsrox_resource_name (Resource)
 
-The resource popsrox_utils_resource_name implements a set of methodologies to apply consistent resource naming using Azure NoOps Accelerator.
+The resource popsrox_resource_name implements a set of methodologies to apply consistent resource naming using Azure NoOps Accelerator.
 
-The popsrox_utils_resource_name provides more flexibility and will be updated on a regular basis as new Azure services are released.
+The popsrox_resource_name provides more flexibility and will be updated on a regular basis as new Azure services are released.
 
-The popsrox_utils_resource_name resource allows you to:
+The popsrox_resource_name resource allows you to:
 
 * Clean inputs to make sure they remain compliant with the allowed patterns for each Azure resource
 * Generate random characters to append at the end of the resource name
@@ -27,7 +27,7 @@ The example generates a 23 characters name compatible with the specification for
 dev-aztfmod-001
 
 ```hcl
-resource "popsrox_utils_resource_name" "rg_example" {
+resource "popsrox_resource_name" "rg_example" {
   name            = "demogroup"
     resource_type   = "azurerm_resource_group"
     prefixes        = ["anoa", "eastus"]
@@ -37,7 +37,7 @@ resource "popsrox_utils_resource_name" "rg_example" {
 }
 
 resource "azurerm_resource_group" "demo" {
-  name     = popsrox_utils_resource_name.rg_example.result
+  name     = popsrox_resource_name.rg_example.result
   location = "eastus"
 }
 ```
