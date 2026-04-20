@@ -1,5 +1,5 @@
 version: 2
-project_name: terraform-provider-popsrox-utils
+project_name: terraform-provider-azutils
 release:
   github:
     owner: POps-Rox
@@ -7,7 +7,7 @@ release:
   draft: false
   name_template: '{{.Tag}}'
 builds:
-- id: terraform-provider-popsrox-utils
+- id: terraform-provider-azutils
   goos:
   - freebsd
   - openbsd
@@ -61,7 +61,7 @@ builds:
 archives:
 - id: default
   ids:
-  - terraform-provider-popsrox-utils
+  - terraform-provider-azutils
   name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
   formats:
   - zip
