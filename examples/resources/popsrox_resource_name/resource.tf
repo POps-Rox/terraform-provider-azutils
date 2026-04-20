@@ -1,25 +1,25 @@
 terraform {
   required_providers {
-    popsrox-utils = {
-      source = "POps-Rox/popsrox-utils"
+    popsrox = {
+      source = "POps-Rox/azutils"
     }
   }
 }
 
 #Storage account test
-resource "popsrox_utils_resource_name" "classic_st" {
-  provider      = popsrox-utils
+resource "popsrox_resource_name" "classic_st" {
+  provider      = popsrox
   name          = "log2"
   resource_type = "azurerm_storage_account"
 }
 
 output "caf_name_classic_st" {
-  value       = popsrox_utils_resource_name.classic_st.result
+  value       = popsrox_resource_name.classic_st.result
   description = "Random result based on the resource type"
 }
 
-resource "popsrox_utils_resource_name" "azurerm_cognitive_account" {
-  provider      = popsrox-utils
+resource "popsrox_resource_name" "azurerm_cognitive_account" {
+  provider      = popsrox
   name          = "cogsdemo"
   resource_type = "azurerm_cognitive_account"
   prefixes      = ["a", "z"]
@@ -31,12 +31,12 @@ resource "popsrox_utils_resource_name" "azurerm_cognitive_account" {
 }
 
 output "azurerm_cognitive_account" {
-  value       = popsrox_utils_resource_name.azurerm_cognitive_account.result
+  value       = popsrox_resource_name.azurerm_cognitive_account.result
   description = "Random result based on the resource type"
 }
 
-resource "popsrox_utils_resource_name" "multiple_resources" {
-  provider       = popsrox-utils
+resource "popsrox_resource_name" "multiple_resources" {
+  provider       = popsrox
   name           = "cogsdemo2"
   resource_type  = "azurerm_cognitive_account"
   resource_types = ["azurerm_storage_account"]
@@ -49,9 +49,9 @@ resource "popsrox_utils_resource_name" "multiple_resources" {
 }
 
 output "multiple_resources" {
-  value = popsrox_utils_resource_name.multiple_resources.results
+  value = popsrox_resource_name.multiple_resources.results
 }
 
 output "multiple_resources_main" {
-  value = popsrox_utils_resource_name.multiple_resources.result
+  value = popsrox_resource_name.multiple_resources.result
 }

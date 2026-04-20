@@ -1,11 +1,11 @@
 terraform {
   required_providers {
-    popsrox-utils = {
-      source = "POps-Rox/popsrox-utils"
+    popsrox = {
+      source = "POps-Rox/azutils"
     }
   }
 }
 
-provider "popsrox-utils" {
+provider "popsrox" {
   # example configuration here
 }
